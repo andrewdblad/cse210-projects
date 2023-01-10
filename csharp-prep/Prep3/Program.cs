@@ -4,6 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep3 World!");
+
+Random randomGen = new Random();
+int magicNum = randomGen.Next(1,100);
+
+int guess = 0;
+
+    while (guess != magicNum)
+    {
+        Console.WriteLine("What is your guess?: ");
+        guess = int.Parse(Console.ReadLine());
+
+        if (guess < magicNum)
+        {
+            Console.WriteLine("Higher!");
+        }
+
+        if (guess > magicNum)
+        {
+            Console.WriteLine("Lower!");
+        }
+
+
+    }
+
+    Console.WriteLine("Correct!");
+
     }
 }
