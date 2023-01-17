@@ -15,8 +15,6 @@ class Program
         job2._startYear = 2000;
         job2._endYear = 2003;
 
-        job1.Display();
-        job2.Display();
 
         Resume myResume = new Resume();
         myResume._name = "Andrew Blad";
