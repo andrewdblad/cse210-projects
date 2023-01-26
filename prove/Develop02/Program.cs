@@ -7,6 +7,7 @@ class Program
     {
         Menu menu = new Menu();
         Entry entry = new Entry();
+        Journal journal = new Journal();
         char choice = '0';
         while (choice != '5')
         {
@@ -16,21 +17,19 @@ class Program
             {
                 case '1':
                     Console.WriteLine();
-                    string prompt = entry.RandomPrompt();
-                    string response = Console.ReadLine();
-                    entry.Write(response, prompt);
+                    // get random prompt and send prompt to 
+                    journal._entryAnswer += entry.RandomPrompt(journal._entryAnswer);
                     break;
                 case '2':
-                    Console.WriteLine();
-                    Console.WriteLine("Displayyyyyyyy");
+                    journal.DisplayJournal();
                     break;
                 case '3':
                     Console.WriteLine();
-                    Console.WriteLine("Loaddddddd");
+                    journal.LoadJournal();
                     break;
                 case '4':
                     Console.WriteLine();
-                    Console.WriteLine("Saveeeeeeee");
+                    journal.StoreJournal();
                     break;
             }
         }
