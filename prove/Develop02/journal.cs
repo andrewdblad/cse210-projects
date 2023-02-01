@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-public class Journal
+class Journal
 {
     public string _entryAnswer = "";
 
