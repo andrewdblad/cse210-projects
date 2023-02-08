@@ -25,4 +25,9 @@ using System.Collections.Generic;
             }
             Console.WriteLine();
         }
+        public bool IsAllHidden()
+        {
+            //ask all words if they are hidden
+            return false;
+        }
     }

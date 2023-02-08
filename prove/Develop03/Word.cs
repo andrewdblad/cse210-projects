@@ -24,5 +24,9 @@ class Word
             Console.Write(_text);
         }
     }
+    public bool IsHidden()
+    {
+        return _hidden;
+    }
 
 }

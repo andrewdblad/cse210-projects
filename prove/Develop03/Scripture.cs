@@ -20,4 +20,13 @@ using System.Collections.Generic;
                 verse.Display();
             }
         }
+        public bool HideWords(int count)
+        {
+            return false;
+        }
+        public bool IsAllHidden()
+        {
+            // ask all the verses if they are hidden
+            return false;
+        }
     }
