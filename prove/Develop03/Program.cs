@@ -31,8 +31,11 @@ class Program
                 //scripture.WordsList(verses);
                 // pass method as parameter
                 List<string> wordsMethod = scripture.WordsList(verses);
-                scripture.RandomWords(wordsMethod); 
-            }
+                List<string> randomWordsMethod = scripture.RandomWords(wordsMethod); 
+                List<string> PassMethod = scripture.PassThrough(randomWordsMethod);
+                List<string> wordsList = scripture.RandomWords(PassMethod);
+
+            }   
         }    
     }
 }
