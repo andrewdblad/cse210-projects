@@ -36,27 +36,31 @@ using System.Collections.Generic;
         {
             int number = 0;
 
-            while (number != 3)
+            while (number != 1)
             {
-                
-            int count = words.Count();
-            int indexVal = random.Next(count);
-            string word = words[indexVal];
-            for(int i=0;i<count;i++)
-                {
+                int count = words.Count();
+                for(int i=0;i<count;i++)
+                {             
+                    int indexVal = random.Next(count);
+                    string word = words[indexVal];
                     if(words[i].Contains(word))
                     {
                         int charCount = word.Count();
-                        string dashes = new String('_', charCount);
+                        word = new String('_', charCount);
                         words.RemoveAt(indexVal);
-                        words.Insert(indexVal, dashes);
-
+                        words.Insert(indexVal, word);
                     }
+                
                 }
-
             number = number + 1;
             }
-            
+            List<string> listWithDashes = new List<string>();
+            listWithDashes = words;
+            foreach(string w in listWithDashes)
+            {
+                Console.Write(w);
+                Console.Write(" ");
+            }
         }
 
         public void HideWords(int count)

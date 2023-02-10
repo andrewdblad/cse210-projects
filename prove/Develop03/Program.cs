@@ -24,15 +24,14 @@ class Program
             while (input != "quit")
             {
                 Console.WriteLine("");
-                scripture.Display();
+                //scripture.Display();
                 Console.WriteLine("");
                 Console.Write("Hit enter to hide words or type 'quit' to exit: ");
                 input = Console.ReadLine();
                 //scripture.WordsList(verses);
                 // pass method as parameter
                 List<string> wordsMethod = scripture.WordsList(verses);
-                scripture.RandomWords(wordsMethod);
-                
+                scripture.RandomWords(wordsMethod); 
             }
         }    
     }
