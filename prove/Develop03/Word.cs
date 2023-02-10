@@ -6,7 +6,7 @@ class Word
     private string _text = "";
     private bool _hidden = false;
 
-    
+
     public Word(string text)
     {
      _text = text;
@@ -24,6 +24,7 @@ class Word
             Console.Write(_text);
         }
     }
+
     public bool IsHidden()
     {
         return _hidden;

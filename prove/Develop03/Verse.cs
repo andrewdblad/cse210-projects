@@ -8,7 +8,7 @@ using System.Collections.Generic;
         {
             _words = new List<Word>();
 
-            char[] delimiterChars = { ' ', ':', '\t' };
+            char[] delimiterChars = { ' ', '\t' };
             string[] words = verse.Split(delimiterChars);
             foreach (string wordString in words)
             {
