@@ -7,14 +7,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        Menu menu = new Menu();
-        Cart cart = new Cart();
+        Book book1 = new Book();
+        book1.SetAuthor("Smith");
+        book1.SetTitle("A great book");
+        Console.WriteLine(book1.GetBookInfo());
 
-        menu.Display();
+        PictureBook book2 = new PictureBook();
+        book2.SetAuthor("Andrew");
+        book2.SetTitle("Epic Book yo");
+        book2.SetIllustrator("John");
 
-        cart.AddItem();
-        cart.AddItem();
-        cart.Display();
-        Console.WriteLine($"Total = {cart.GetTotal()}");
+        Console.WriteLine(book2.GetPictureBookInfo());
     }
 }
