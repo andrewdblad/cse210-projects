@@ -32,7 +32,7 @@ using System.Collections.Generic;
             return words;
         }
 
-        public void RandomWords(List<string> words)
+        public List<string> RandomWords(List<string> words)
         {
             int number = 0;
 
@@ -49,22 +49,19 @@ using System.Collections.Generic;
                         word = new String('_', charCount);
                         words.RemoveAt(indexVal);
                         words.Insert(indexVal, word);
+                        
                     }
                 
                 }
             number = number + 1;
             }
-            List<string> listWithDashes = new List<string>();
-            listWithDashes = words;
-            foreach(string w in listWithDashes)
-            {
-                Console.Write(w);
-                Console.Write(" ");
-            }
+            return words;
         }
 
-        public void HideWords(int count)
+        public List<string> PassThrough(List<string> wordsWithDashes)
         {
+
+            return wordsWithDashes;
         }
         public bool IsAllHidden()
         {
