@@ -1,5 +1,6 @@
 using System;
 
+// EXCEEDED REQUIREMENTS BY ADDING A BREATHING ANIMATION INSTEAD OF JUST A COUNTDOWN
 class Program
 {
    static void Main(string[] args)
