@@ -4,7 +4,7 @@ using System.IO;
 class Program
 {
 
-    
+    //EXCEEDED REQUIREMENTS BY ADDING NOTIFICATIONS EVERYTIME AN ACTION IS COMPLETED
     static void Main(string[] args)
     {
         List<Goal> goalsList = new List<Goal>();

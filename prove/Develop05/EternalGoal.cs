@@ -11,9 +11,9 @@ class EternalGoal : Goal
     }
     public void GetInputEternalGoal()
     {
-        this.DisplayGetName();
-        this.DisplayGetDescription();
-        this.DisplayGetPoints();
+        DisplayGetName();
+        DisplayGetDescription();
+        DisplayGetPoints();
     }
     public override void Display()
     {

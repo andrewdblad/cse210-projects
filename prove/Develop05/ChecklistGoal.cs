@@ -14,16 +14,16 @@ class ChecklistGoal : Goal
     }
     public void DisplayGetGoalTimes()
     {
-        Console.Write("How many times does this goal need to be completed for a bonus?: ");
+        Console.Write("How many times does goal need to be completed for a bonus?: ");
         _goalTimes = Convert.ToInt32(Console.ReadLine());
     }
     public void GetInputChecklistGoal()
     {
-        this.DisplayGetName();
-        this.DisplayGetDescription();
-        this.DisplayGetPoints();
-        this.DisplayGetGoalTimes();
-        this.DisplayGetBonusPoints();
+        DisplayGetName();
+        DisplayGetDescription();
+        DisplayGetPoints();
+        DisplayGetGoalTimes();
+        DisplayGetBonusPoints();
     }
     public void DisplayGetBonusPoints()
     {

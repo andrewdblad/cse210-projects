@@ -8,9 +8,9 @@ class SimpleGoal : Goal
 
     public void GetInputSimpleGoal()
     {
-        this.DisplayGetName();
-        this.DisplayGetDescription();
-        this.DisplayGetPoints();
+        DisplayGetName();
+        DisplayGetDescription();
+        DisplayGetPoints();
     }
     public override int GetPoints()
     {
