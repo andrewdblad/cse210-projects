@@ -6,7 +6,7 @@ class SimpleGoal : Goal
     private bool _isComplete = false;
     public SimpleGoal() : base() { }
 
-    public void ExecuteSimpleGoal()
+    public void GetInputSimpleGoal()
     {
         this.DisplayGetName();
         this.DisplayGetDescription();

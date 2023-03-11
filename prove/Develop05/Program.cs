@@ -7,7 +7,7 @@ class Program
     
     static void Main(string[] args)
     {
-        List<Goal> _goals = new List<Goal>();
+        List<Goal> goalsList = new List<Goal>();
         int totalPoints = 0;
         char choice = '0';
         char goalChoice = '0';
@@ -15,10 +15,17 @@ class Program
         int points = 0;
         string fileName = "";
         string rep = "";
+        string notification = "";
 
         while (choice != '6')
         {
-            Console.WriteLine();
+            Console.Clear();
+            Console.WriteLine("-------- Goal Program --------");
+            //change notification color to red
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(notification);
+            Console.ResetColor();
+            //
             Console.WriteLine($"YOU HAVE {totalPoints} POINTS.");
             Console.WriteLine();
             Console.WriteLine("Menu Options:");
@@ -44,33 +51,41 @@ class Program
                     if(goalChoice == '1')
                     {
                         SimpleGoal simple = new SimpleGoal();
-                        simple.ExecuteSimpleGoal();
+                        simple.GetInputSimpleGoal();
                         Console.Clear();
-                        _goals.Add(simple);
+                        goalsList.Add(simple);
+                        notification = "Created new Simple Goal!";
                     }
                     if(goalChoice == '2')
                     {
                         EternalGoal eternal = new EternalGoal();
-                        eternal.ExecuteEternalGoal();
+                        eternal.GetInputEternalGoal();
                         Console.Clear();
-                        _goals.Add(eternal);
+                        goalsList.Add(eternal);
+                        notification = "Created new Eternal Goal!";
                     }
                     if(goalChoice =='3')
                     {
                         ChecklistGoal checklist = new ChecklistGoal();      
-                        checklist.ExecuteChecklistGoal();
+                        checklist.GetInputChecklistGoal();
                         Console.Clear();             
-                        _goals.Add(checklist);
+                        goalsList.Add(checklist);
+                        notification = "Created new Checklist Goal!";
                     }
                 }
 
                 if(choice == '2')
                 {
-                    Console.WriteLine();
-                    foreach (Goal goal in _goals)
+                    Console.Clear();
+                    notification = "";
+                    Console.WriteLine("------- Goals -------");
+                    foreach (Goal goal in goalsList)
                     {
                         goal.Display();
                     }
+                    Console.WriteLine("Press Enter to continue: ");
+                    Console.ReadKey();
+
                 }
                 
                 if(choice == '3')
@@ -79,7 +94,9 @@ class Program
                     Console.Write("Name the file you want to save to: ");
                     fileName = Console.ReadLine();
                     SaveFile(fileName);
-                    _goals.Clear();
+                    goalsList.Clear();
+                    totalPoints = 0;
+                    notification = $"Goals saved to {fileName} - Load {fileName} to continue your progress!";
                 }
                 if(choice == '4')
                 {
@@ -87,18 +104,19 @@ class Program
                     Console.Write("Name the file you want to load: ");
                     fileName = Console.ReadLine();
                     LoadFile(fileName);
+                    notification = $"Loaded {fileName}!";
                 }    
                 if(choice == '5')
                 {
                     Console.Clear();
-                    foreach(Goal goal in _goals)
+                    foreach(Goal goal in goalsList)
                     {
                         goal.DisplayName();
                         Console.WriteLine();
                     }
                     Console.Write("Which goal did you complete? Enter name: ");
                     inputChoice = Console.ReadLine();
-                    foreach(Goal goal in _goals)
+                    foreach(Goal goal in goalsList)
                     {
                         if (goal.GetName() == inputChoice.ToString())
                         {
@@ -108,13 +126,14 @@ class Program
                                 points = goal.GetPoints();
                                 totalPoints = totalPoints + points;  
                             }
-                            if(_goals.Any(x => x is ChecklistGoal))
+                            if(goalsList.Any(x => x is ChecklistGoal))
                             {
                                 points = goal.GetChecklistPoint();
                                 totalPoints = totalPoints + points;
                             }
                         }
                     }
+                    notification = $"You completed {inputChoice}! {points} points have been added to your total!";
                 }
                 if(choice == '6')
                 {
@@ -126,7 +145,7 @@ class Program
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
                 outputFile.WriteLine(totalPoints);
-                foreach(Goal goal in _goals)
+                foreach(Goal goal in goalsList)
                 {
                     rep = goal.GetStringRepresentation();
                     outputFile.WriteLine(rep);
@@ -142,22 +161,22 @@ class Program
                 {
                     SimpleGoal simple = new SimpleGoal();
                     simple.HandleStringRep(stringRep);
-                    _goals.Add(simple);
+                    goalsList.Add(simple);
                 }
                 if(stringRep.Contains("EternalGoal"))
                 {
                     EternalGoal eternal = new EternalGoal();
                     eternal.HandleStringRep(stringRep);
-                    _goals.Add(eternal);
+                    goalsList.Add(eternal);
                 }
                 if(stringRep.Contains("ChecklistGoal"))
                 {
                     ChecklistGoal checklist = new ChecklistGoal();
                     checklist.HandleStringRep(stringRep);
-                    _goals.Add(checklist);
+                    goalsList.Add(checklist);
                 }
             }
-            foreach(Goal goal in _goals)
+            foreach(Goal goal in goalsList)
             {
                 totalPoints = goal.GetPoints() + (goal.GetCompletedTimes() * goal.GetChecklistPoint());
             }
