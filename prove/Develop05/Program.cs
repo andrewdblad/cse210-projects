@@ -44,21 +44,21 @@ class Program
                     if(goalChoice == '1')
                     {
                         SimpleGoal simple = new SimpleGoal();
-                        simple.DoSimpleGoal();
+                        simple.ExecuteSimpleGoal();
                         Console.Clear();
                         _goals.Add(simple);
                     }
                     if(goalChoice == '2')
                     {
                         EternalGoal eternal = new EternalGoal();
-                        eternal.DoEternalGoal();
+                        eternal.ExecuteEternalGoal();
                         Console.Clear();
                         _goals.Add(eternal);
                     }
                     if(goalChoice =='3')
                     {
                         ChecklistGoal checklist = new ChecklistGoal();      
-                        checklist.DoChecklistGoal();
+                        checklist.ExecuteChecklistGoal();
                         Console.Clear();             
                         _goals.Add(checklist);
                     }

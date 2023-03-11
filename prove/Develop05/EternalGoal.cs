@@ -9,7 +9,7 @@ class EternalGoal : Goal
     {
         return _point;
     }
-    public void DoEternalGoal()
+    public void ExecuteEternalGoal()
     {
         this.DisplayGetName();
         this.DisplayGetDescription();

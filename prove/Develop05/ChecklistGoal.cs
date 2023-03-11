@@ -17,7 +17,7 @@ class ChecklistGoal : Goal
         Console.Write("How many times does this goal need to be completed for a bonus?: ");
         _goalTimes = Convert.ToInt32(Console.ReadLine());
     }
-    public void DoChecklistGoal()
+    public void ExecuteChecklistGoal()
     {
         this.DisplayGetName();
         this.DisplayGetDescription();
